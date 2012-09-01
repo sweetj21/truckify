@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require 'open-uri'
+
 Driver.create([
 	{ first_name: "Alexander", last_name: "Profeit", unit_id: 1 },
 	{ first_name: "Chris", last_name: "Wilson", unit_id: 2 },
@@ -54,3 +56,4 @@ TripReport.create([
 		odometer_start: 1000,
 		odometer_end: 1200 },
 ])
+

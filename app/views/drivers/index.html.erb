@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th id="actions"><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th id="actions"></th>
     </tr>
   </thead>
   <tbody>
@@ -14,13 +14,22 @@
       <tr>
         <td><%= link_to "#{driver.first_name} #{driver.last_name}", driver %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_driver_path(driver), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <div class="btn-group">
+            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+              Action
+              <span class="caret"></span>
+            </a>
+          
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+              <li><%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_driver_path(driver), tabindex: -1 %></li>
+              <li><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       driver_path(driver),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+                      tabindex: -1 %></li>
+            </ul>
+          </div>
         </td>
       </tr>
     <% end %>

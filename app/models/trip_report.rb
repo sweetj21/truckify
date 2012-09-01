@@ -3,6 +3,8 @@ class TripReport < ActiveRecord::Base
 
   belongs_to :driver
 
+  after_commit :add_location
+
   def odometer_range
   	self.odometer_end - self.odometer_start
   end

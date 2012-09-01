@@ -2,7 +2,7 @@
   <div class="control-group">
     <%= f.label :driver_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :driver_id, :class => 'number_field' %>
+      <%= collection_select :trip_report, :driver_id, Driver.order("first_name"), :id, :first_and_last_name %>
     </div>
   </div>
   <div class="control-group">

@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120901175347) do
     t.date     "trip_start_date"
     t.date     "trip_end_date"
     t.string   "trip_started_at"
-    t.integer  "trip_ended_at"
-    t.integer  "most_distant_city"
+    t.string   "trip_ended_at"
+    t.string   "most_distant_city"
     t.integer  "odometer_start"
     t.integer  "odometer_end"
     t.datetime "created_at",        :null => false

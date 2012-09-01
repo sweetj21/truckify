@@ -6,4 +6,4 @@ git merge upstream/master
 sleep 1
 rake db:migrate
 sleep 1
-rake db:seed
+#rake db:seed

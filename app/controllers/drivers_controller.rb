@@ -2,7 +2,7 @@ class DriversController < ApplicationController
   # GET /drivers
   # GET /drivers.json
   def index
-    @drivers = Driver.all
+    @drivers = Driver.order("last_name")
 
     respond_to do |format|
       format.html # index.html.erb

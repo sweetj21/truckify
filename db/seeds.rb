@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Driver.create([
+	{ first_name: "Alexander", last_name: "Profeit" },
+	{ first_name: "Chris", last_name: "Wilson" },
+	{ first_name: "Eric", last_name: "Millington" }
+])

@@ -75,6 +75,37 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_crossing_path,
-            :class => 'btn btn-primary' %>
+<a href="#" class="btn btn-primary create_crossing_form">New</a>
+
+<%= form_for @crossing, :html => { :class => 'form-horizontal', style: "display: none;" } do |f| %>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :odometer_reading, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :odometer_reading, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :routes_used, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :routes_used, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group hidden">
+    <%= f.label :trip_report_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :trip_report_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <a href="#" class="btn close_crossing_form">Cancel</a>
+  </div>
+<% end %>
+

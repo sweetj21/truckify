@@ -24,7 +24,7 @@ class CrossingsController < ApplicationController
   # GET /crossings/new
   # GET /crossings/new.json
   def new
-    @crossing = Crossing.new
+    @crossing = Crossing.new(trip_report_id: params[:trip_report_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +44,7 @@ class CrossingsController < ApplicationController
 
     respond_to do |format|
       if @crossing.save
-        format.html { redirect_to @crossing, notice: 'Crossing was successfully created.' }
+        format.html { redirect_to @crossing.trip_report, notice: 'Crossing was successfully created.' }
         format.json { render json: @crossing, status: :created, location: @crossing }
       else
         format.html { render action: "new" }

@@ -15,6 +15,7 @@ class TripReportsController < ApplicationController
   def show
     @trip_report = TripReport.find(params[:id])
     @crossings = @trip_report.crossings
+    @crossing = Crossing.new(trip_report_id: @trip_report.id)
 
     respond_to do |format|
       format.html # show.html.erb

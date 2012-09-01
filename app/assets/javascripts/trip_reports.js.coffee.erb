@@ -3,3 +3,12 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $('.dropdown-toggle').dropdown()
+
+$('.create_crossing_form').click ->
+	$(this).fadeToggle ->
+		$('.form-horizontal').fadeToggle()
+
+$('.close_crossing_form').click ->
+	$('.form-horizontal').fadeToggle ->
+		$('.create_crossing_form').fadeToggle()
+	

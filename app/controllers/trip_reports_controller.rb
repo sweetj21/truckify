@@ -14,6 +14,7 @@ class TripReportsController < ApplicationController
   # GET /trip_reports/1.json
   def show
     @trip_report = TripReport.find(params[:id])
+    @crossings = @trip_report.crossings
 
     respond_to do |format|
       format.html # show.html.erb

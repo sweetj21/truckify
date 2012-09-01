@@ -3,6 +3,8 @@ class TripReport < ActiveRecord::Base
 
   belongs_to :driver
 
+  has_many :crossings
+
   after_commit :add_location
 
   def odometer_range

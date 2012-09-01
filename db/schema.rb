@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901184009) do
+ActiveRecord::Schema.define(:version => 20120901222231) do
+
+  create_table "crossings", :force => true do |t|
+    t.string   "state"
+    t.integer  "odometer_reading"
+    t.string   "routes_used"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "trip_report_id"
+  end
 
   create_table "drivers", :force => true do |t|
     t.string   "first_name"

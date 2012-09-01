@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901180754) do
+ActiveRecord::Schema.define(:version => 20120901184009) do
 
   create_table "drivers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "unit_id"
   end
 
   create_table "trip_reports", :force => true do |t|
     t.integer  "driver_id"
-    t.integer  "unit_id"
     t.date     "trip_start_date"
     t.date     "trip_end_date"
     t.string   "trip_started_at"

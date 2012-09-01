@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:driver_id) %></th>
-      <th><%= model_class.human_attribute_name(:unit_id) %></th>
+      <th><%= "Unit #" %></th>
       <th><%= model_class.human_attribute_name(:trip_start_date) %></th>
       <th><%= model_class.human_attribute_name(:trip_end_date) %></th>
       <th><%= model_class.human_attribute_name(:trip_started_at) %></th>
@@ -24,7 +24,7 @@
       <tr>
         <td><%= link_to trip_report.id, trip_report_path(trip_report) %></td>
         <td><%= trip_report.driver_id %></td>
-        <td><%= trip_report.unit_id %></td>
+        <td><%= trip_report.driver.unit_id %></td>
         <td><%= trip_report.trip_start_date %></td>
         <td><%= trip_report.trip_end_date %></td>
         <td><%= trip_report.trip_started_at %></td>

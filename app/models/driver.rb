@@ -1,5 +1,5 @@
 class Driver < ActiveRecord::Base
-  attr_accessible :first_name, :last_name
+  attr_accessible :first_name, :last_name, :unit_id
 
   has_many :trip_reports
 

@@ -4,11 +4,13 @@
 
 $('.dropdown-toggle').dropdown()
 
-$('.create_crossing_form').click ->
+$('.create_crossing_form').click (e) ->
+	e.preventDefault()
 	$(this).fadeToggle ->
 		$('.form-horizontal').fadeToggle()
 
-$('.close_crossing_form').click ->
+$('.close_crossing_form').click (e) ->
+	e.preventDefault()
 	$('.form-horizontal').fadeToggle ->
 		$('.create_crossing_form').fadeToggle()
 	

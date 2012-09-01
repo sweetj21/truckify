@@ -6,23 +6,19 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:driver_id) %></th>
-      <th><%= "Unit #" %></th>
       <th>Date</th>
       <th>Trip</th>
       <th>Distance</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @trip_reports.each do |trip_report| %>
       <tr>
         <td><%= link_to trip_report.id, trip_report_path(trip_report) %></td>
-        <td><%= trip_report.driver.first_and_last_name %></td>
-        <td><%= trip_report.driver.unit_id %></td>
         <td><%= trip_report.trip_start_date %> to <%= trip_report.trip_end_date %></td>
         <td><%= trip_report.trip_started_at %> -> <%= trip_report.most_distant_city %> -> <%= trip_report.trip_ended_at %></td>
         <td><%= trip_report.odometer_range %>
+<<<<<<< HEAD
         <td>
 
           <div class="btn-group">
@@ -45,6 +41,8 @@
           
           
         </td>
+=======
+>>>>>>> cleaned up trip_report index
       </tr>
     <% end %>
   </tbody>

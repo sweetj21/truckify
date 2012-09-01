@@ -34,7 +34,7 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
               <li><%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_trip_report_path(trip_report), tabindex: -1 %></li>
-              <li><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              <li><%= link_to t"Delete",
                       trip_report_path(trip_report),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),

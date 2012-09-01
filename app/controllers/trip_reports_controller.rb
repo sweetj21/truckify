@@ -2,7 +2,7 @@ class TripReportsController < ApplicationController
   # GET /trip_reports
   # GET /trip_reports.json
   def index
-    @trip_reports = TripReport.all
+    @trip_reports = TripReport.order("trip_start_date")
 
     respond_to do |format|
       format.html # index.html.erb

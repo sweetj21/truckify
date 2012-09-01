@@ -1,0 +1,62 @@
+<%= form_for @trip_report, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :driver_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :driver_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :unit_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :unit_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :trip_start_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :trip_start_date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :trip_end_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :trip_end_date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :trip_started_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :trip_started_at, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :trip_ended_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :trip_ended_at, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :most_distant_city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :most_distant_city, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :odometer_start, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :odometer_start, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :odometer_end, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :odometer_end, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                trip_reports_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  driver_id: 1
+  unit_id: 1
+  trip_start_date: 2012-09-01
+  trip_end_date: 
+  trip_started_at: MyString
+  trip_ended_at: 1
+  most_distant_city: 1
+  odometer_start: 1
+  odometer_end: 1
+
+two:
+  driver_id: 1
+  unit_id: 1
+  trip_start_date: 2012-09-01
+  trip_end_date: 
+  trip_started_at: MyString
+  trip_ended_at: 1
+  most_distant_city: 1
+  odometer_start: 1
+  odometer_end: 1

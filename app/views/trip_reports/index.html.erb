@@ -1,0 +1,52 @@
+<%- model_class = TripReport -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:driver_id) %></th>
+      <th><%= model_class.human_attribute_name(:unit_id) %></th>
+      <th><%= model_class.human_attribute_name(:trip_start_date) %></th>
+      <th><%= model_class.human_attribute_name(:trip_end_date) %></th>
+      <th><%= model_class.human_attribute_name(:trip_started_at) %></th>
+      <th><%= model_class.human_attribute_name(:trip_ended_at) %></th>
+      <th><%= model_class.human_attribute_name(:most_distant_city) %></th>
+      <th><%= model_class.human_attribute_name(:odometer_start) %></th>
+      <th><%= model_class.human_attribute_name(:odometer_end) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trip_reports.each do |trip_report| %>
+      <tr>
+        <td><%= link_to trip_report.id, trip_report_path(trip_report) %></td>
+        <td><%= trip_report.driver_id %></td>
+        <td><%= trip_report.unit_id %></td>
+        <td><%= trip_report.trip_start_date %></td>
+        <td><%= trip_report.trip_end_date %></td>
+        <td><%= trip_report.trip_started_at %></td>
+        <td><%= trip_report.trip_ended_at %></td>
+        <td><%= trip_report.most_distant_city %></td>
+        <td><%= trip_report.odometer_start %></td>
+        <td><%= trip_report.odometer_end %></td>
+        <td><%=l trip_report.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_trip_report_path(trip_report), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      trip_report_path(trip_report),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_trip_report_path,
+            :class => 'btn btn-primary' %>

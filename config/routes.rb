@@ -1,4 +1,6 @@
 Truckify::Application.routes.draw do
+  resources :trip_reports
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

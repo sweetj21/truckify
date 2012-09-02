@@ -93,15 +93,17 @@
 </div>
 
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:state) %></th>
-      <th><%= model_class.human_attribute_name(:odometer_reading) %></th>
-      <th>Totals</th>
-      <th><%= model_class.human_attribute_name(:routes_used) %></th>
-      <th></th>
-    </tr>
-  </thead>
+  <% if !@crossings.empty? %>
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:state) %></th>
+        <th><%= model_class.human_attribute_name(:odometer_reading) %></th>
+        <th>Totals</th>
+        <th><%= model_class.human_attribute_name(:routes_used) %></th>
+        <th></th>
+      </tr>
+    </thead>
+  <% end %>
   <tbody>
     <% odom = 0 %>
     <% @crossings.each do |crossing| %>

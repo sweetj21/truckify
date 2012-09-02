@@ -35,7 +35,10 @@ $(document).ready ->
 
   mapOptions = {
     zoom: 8,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    disableDefaultUI: true,
+    draggable: false,
+    scrollwheel: false
   }
   map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions)
   directionsDisplay.setMap(map)

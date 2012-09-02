@@ -40,15 +40,15 @@
   </div>
 
   <div class="span2">
-    <h6>Trip Started At</h6><h3><%= @trip_report.trip_started_at %></h3>
+    <h6>Trip Started At</h6><h3 id="trip-started-at"><%= @trip_report.trip_started_at %></h3>
   </div>
 
   <div class="span2">
-    <h6>Trip Ended At</h6><h3><%= @trip_report.trip_ended_at %></h3>
+    <h6>Trip Ended At</h6><h3 id="trip-ended-at"><%= @trip_report.trip_ended_at %></h3>
   </div>
 
   <div class="span2">
-    <h6>Most Distant Point</h6><h3><%= @trip_report.most_distant_city %></h3>
+    <h6>Most Distant Point</h6><h3 id="distant-point"><%= @trip_report.most_distant_city %></h3>
   </div>
 </div>
 
@@ -84,7 +84,7 @@
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDltT5wY4rmzQCqIB36zGqvJirB7vJpK7A&sensor=true"></script>
 
-<div id="map_canvas" style="width:100%; height:200px;"></div>
+<div id="map_canvas" style="width:100%; height:200px;"><hr></div>
 
 <hr>
 

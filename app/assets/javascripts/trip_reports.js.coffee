@@ -10,12 +10,23 @@ $('.dropdown-toggle').dropdown()
 $('.create_crossing_form').click (e) ->
 	e.preventDefault()
 	$(this).fadeToggle ->
-		$('.form-horizontal').fadeToggle()
+		$('.form-horizontal:first').slideToggle()
 
 $('.close_crossing_form').click (e) ->
 	e.preventDefault()
-	$('.form-horizontal').fadeToggle ->
+	$('.form-horizontal:first').slideToggle ->
 		$('.create_crossing_form').fadeToggle()
+
+$('.create-gas-stop-form').click (e) ->
+  e.preventDefault()
+  $(this).fadeToggle ->
+    $('.form-horizontal:last').slideToggle()
+
+$('.close-gas-stop-form').click (e) ->
+  e.preventDefault()
+  $('.form-horizontal:last').slideToggle ->
+    $('.create-gas-stop-form').fadeToggle()
+
 	
 
 $('#show-map').click (e) ->

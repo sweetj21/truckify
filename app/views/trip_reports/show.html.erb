@@ -160,3 +160,96 @@
   </div>
 <% end %>
 
+<hr>
+
+<div class="page-header">
+  <h1>Gas Stops</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:vendors_name) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:invoice_number) %></th>
+      <th><%= model_class.human_attribute_name(:volume) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trip_report.gas_stops.each do |gas_stop| %>
+      <tr>
+        <td><%= gas_stop.state %></td>
+        <td><%= gas_stop.date %></td>
+        <td><%= gas_stop.vendors_name %></td>
+        <td><%= gas_stop.location %></td>
+        <td><%= gas_stop.invoice_number %></td>
+        <td><%= gas_stop.volume %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_gas_stop_path(gas_stop), :class => 'btn btn-mini pull-right' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a href="#" class="btn btn-primary create-gas-stop-form">New</a>
+
+<%= form_for @gas_stop, :html => { :class => 'form-horizontal', style: "display:none;" } do |f| %>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vendors_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vendors_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :invoice_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :invoice_number, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :volume, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :volume, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :metric, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :metric, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group" style="display:none;">
+    <%= f.label :trip_report_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :trip_report_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <a href="#" class="btn close-gas-stop-form">Cancel</a>
+  </div>
+<% end %>

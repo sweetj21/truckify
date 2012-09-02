@@ -1,0 +1,56 @@
+<%= form_for @gas_stop, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vendors_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vendors_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :location, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :invoice_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :invoice_number, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :volume, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :volume, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :metric, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :metric, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group" style="display:none;">
+    <%= f.label :trip_report_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :trip_report_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                @gas_stop.trip_report, :class => 'btn' %>
+  </div>
+<% end %>

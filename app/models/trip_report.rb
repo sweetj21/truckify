@@ -4,6 +4,7 @@ class TripReport < ActiveRecord::Base
   belongs_to :driver
 
   has_many :crossings
+  has_many :gas_stops
 
   after_commit :add_location
 

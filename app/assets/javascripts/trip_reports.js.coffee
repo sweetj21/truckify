@@ -14,3 +14,10 @@ $('.close_crossing_form').click (e) ->
 	$('.form-horizontal').fadeToggle ->
 		$('.create_crossing_form').fadeToggle()
 	
+$(document).ready ->
+  mapOptions = {
+    center: new google.maps.LatLng(-34.397, 150.644),
+    zoom: 8,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions)

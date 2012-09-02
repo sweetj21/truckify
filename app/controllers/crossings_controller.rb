@@ -76,7 +76,7 @@ class CrossingsController < ApplicationController
     @crossing.destroy
 
     respond_to do |format|
-      format.html { redirect_to crossings_url }
+      format.html { redirect_to @crossing.trip_report }
       format.json { head :no_content }
     end
   end

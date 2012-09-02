@@ -122,7 +122,7 @@
     <% @crossings.each do |crossing| %>
       <tr>
         <td><%= crossing.state %></td>
-        <td><%= crossing.odometer_reading %></td>
+        <td><%= crossing.odometer_reading %><%= @trip_report.km_or_miles %></td>
         <td>
           <% if crossing == @crossings.first %>
             <%= crossing.odometer_reading - @trip_report.odometer_start %>
@@ -131,49 +131,33 @@
             <%= crossing.odometer_reading - odom %>
             <% odom = crossing.odometer_reading %>
           <% end %>
-          
+
           <%= @trip_report.km_or_miles %>
         </td>
         <td><%= crossing.routes_used %></td>
         <td><%= link_to "edit", edit_crossing_path(crossing), class: "btn btn-mini pull-right" %></td>
       </tr>
     <% end %>
+
+    <%= form_for @crossing do |f| %>
+      <tr>
+        <td><%= f.text_field :state, :class => 'text_field' %></td>
+        <td><%= f.number_field :odometer_reading, :class => 'number_field' %></td>
+        <td>
+        </td>
+        <td><%= f.text_field :routes_used, :class => 'text_field' %></td>
+        <%= f.number_field :trip_report_id, :class => 'number_field', style: "display: none;" %>
+        <td>
+          <div class="btn-group pull-right">
+            <%= f.submit nil, :class => 'btn btn-primary btn-small' %>
+            <a href="#" class="btn btn-small" id="close-crossing-form">Cancel</a>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+
   </tbody>
 </table>
-
-<a href="#" class="btn btn-primary create_crossing_form">New</a>
-
-<%= form_for @crossing, :html => { :class => 'form-horizontal', style: "display: none;" } do |f| %>
-  <div class="control-group">
-    <%= f.label :state, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :state, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :odometer_reading, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :odometer_reading, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :routes_used, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :routes_used, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group hidden">
-    <%= f.label :trip_report_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :trip_report_id, :class => 'number_field' %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <a href="#" class="btn close_crossing_form">Cancel</a>
-  </div>
-<% end %>
 
 <hr>
 

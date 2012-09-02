@@ -11,7 +11,7 @@
       <%= f.number_field :odometer_reading, :class => 'number_field' %>
     </div>
   </div>
-  
+
   <div class="control-group">
     <%= f.label :routes_used, :class => 'control-label' %>
     <div class="controls">
@@ -27,7 +27,7 @@
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                crossings_path, :class => 'btn' %>
+    <%= link_to "Delete", crossing_path(@crossing), method: :delete, class: "btn btn-danger", confirm: "Are you sure?" %>
+    <%= link_to "Cancel", @crossing.trip_report, class: "btn" %>
   </div>
 <% end %>

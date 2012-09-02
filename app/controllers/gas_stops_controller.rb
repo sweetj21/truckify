@@ -76,7 +76,7 @@ class GasStopsController < ApplicationController
     @gas_stop.destroy
 
     respond_to do |format|
-      format.html { redirect_to gas_stops_url }
+      format.html { redirect_to @gas_stop.trip_report }
       format.json { head :no_content }
     end
   end

@@ -50,7 +50,7 @@
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                @gas_stop.trip_report, :class => 'btn' %>
+    <%= link_to "Delete", gas_stop_path(@gas_stop), method: :delete, class: "btn btn-danger", confirm: "Are you sure?" %>
+    <%= link_to "Cancel", @gas_stop.trip_report, class: "btn" %>
   </div>
 <% end %>

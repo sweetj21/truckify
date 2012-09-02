@@ -1,4 +1,8 @@
 Truckify::Application.routes.draw do
+  resources :gas_stops
+
+  resources :crossings
+
   resources :drivers
 
   resources :trip_reports

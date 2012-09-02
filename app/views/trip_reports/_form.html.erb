@@ -20,7 +20,7 @@
   <div class="control-group">
     <%= f.label :trip_started_at, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :trip_started_at, :class => 'text_field' %>
+      <%= f.text_field :trip_started_at, :class => 'text_field typeahead', autocomplete: "off" %>
     </div>
   </div>
   <div class="control-group">
@@ -45,6 +45,12 @@
     <%= f.label :odometer_end, :class => 'control-label' %>
     <div class="controls">
       <%= f.number_field :odometer_end, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :metric, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :metric, :class => 'check_box' %>
     </div>
   </div>
 

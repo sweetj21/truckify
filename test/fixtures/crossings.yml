@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  state: MyString
+  odometer_reading: 1
+  routes_used: MyString
+
+two:
+  state: MyString
+  odometer_reading: 1
+  routes_used: MyString

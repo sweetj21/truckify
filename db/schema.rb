@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901184009) do
+ActiveRecord::Schema.define(:version => 20120902031026) do
+
+  create_table "crossings", :force => true do |t|
+    t.string   "state"
+    t.integer  "odometer_reading"
+    t.string   "routes_used"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "trip_report_id"
+    t.boolean  "metric"
+  end
 
   create_table "drivers", :force => true do |t|
     t.string   "first_name"
@@ -19,6 +29,19 @@ ActiveRecord::Schema.define(:version => 20120901184009) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "unit_id"
+  end
+
+  create_table "gas_stops", :force => true do |t|
+    t.string   "state"
+    t.date     "date"
+    t.string   "vendors_name"
+    t.string   "location"
+    t.integer  "invoice_number"
+    t.integer  "volume"
+    t.boolean  "metric"
+    t.integer  "trip_report_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "trip_reports", :force => true do |t|
@@ -32,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20120901184009) do
     t.integer  "odometer_end"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.boolean  "metric"
   end
 
 end

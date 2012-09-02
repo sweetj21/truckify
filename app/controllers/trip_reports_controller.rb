@@ -14,6 +14,10 @@ class TripReportsController < ApplicationController
   # GET /trip_reports/1.json
   def show
     @trip_report = TripReport.find(params[:id])
+    @crossings = @trip_report.crossings
+    @crossing = Crossing.new(trip_report_id: @trip_report.id)
+    @gas_stops = @trip_report.gas_stops
+    @gas_stop = GasStop.new(trip_report_id: @trip_report.id)
 
     respond_to do |format|
       format.html # show.html.erb

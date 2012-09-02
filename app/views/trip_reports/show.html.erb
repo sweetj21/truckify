@@ -17,7 +17,7 @@
 </div>
 
 <div class="row-fluid">
-  <div class="span6">
+  <div class="span2">
     <h6>Driver</h6><h3><%= @trip_report.driver.first_and_last_name %></h3>
   </div>
 
@@ -54,7 +54,11 @@
 
 <div class="row-fluid">
   <div class="span2">
-    <h6>Odometer Start</h6><h3><%= @trip_report.odometer_start %></h3>
+    <h6>Odometer Start</h6>
+    <h3>
+      <%= @trip_report.odometer_start %>
+      <%= @trip_report.km_or_miles %>
+    </h3>
   </div>
 
   <div class="span2">
@@ -62,6 +66,7 @@
     <h3>
       <% if @trip_report.odometer_end %>
         <%= @trip_report.odometer_end %>
+        <%= @trip_report.km_or_miles %>
       <% else %>
         Still truckin'
       <% end %>
@@ -73,9 +78,17 @@
     <h3>
       <% if @trip_report.odometer_end %>
         <%= @trip_report.odometer_end - @trip_report.odometer_start %>
+        <%= @trip_report.km_or_miles %>
       <% else %>
         Unknown
       <% end %>
+    </h3>
+  </div>
+
+  <div class="span2">
+    <h6>Metric</h6>
+    <h3>
+      <%= @trip_report.metric %>
     </h3>
   </div>
 </div>
@@ -118,6 +131,8 @@
             <%= crossing.odometer_reading - odom %>
             <% odom = crossing.odometer_reading %>
           <% end %>
+          
+          <%= @trip_report.km_or_miles %>
         </td>
         <td><%= crossing.routes_used %></td>
         <td><%= link_to "edit", edit_crossing_path(crossing), class: "btn btn-mini pull-right" %></td>
@@ -167,17 +182,19 @@
 </div>
 
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:state) %></th>
-      <th><%= model_class.human_attribute_name(:date) %></th>
-      <th><%= model_class.human_attribute_name(:vendors_name) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:invoice_number) %></th>
-      <th><%= model_class.human_attribute_name(:volume) %></th>
-      <th></th>
-    </tr>
-  </thead>
+  <% if !@trip_report.gas_stops.empty? %>
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:state) %></th>
+        <th><%= model_class.human_attribute_name(:date) %></th>
+        <th><%= model_class.human_attribute_name(:vendors_name) %></th>
+        <th><%= model_class.human_attribute_name(:location) %></th>
+        <th><%= model_class.human_attribute_name(:invoice_number) %></th>
+        <th><%= model_class.human_attribute_name(:volume) %></th>
+        <th></th>
+      </tr>
+    </thead>
+  <% end %>
   <tbody>
     <% @trip_report.gas_stops.each do |gas_stop| %>
       <tr>
@@ -186,7 +203,15 @@
         <td><%= gas_stop.vendors_name %></td>
         <td><%= gas_stop.location %></td>
         <td><%= gas_stop.invoice_number %></td>
-        <td><%= gas_stop.volume %></td>
+        <td>
+          <%= gas_stop.volume %>
+
+          <% if gas_stop.metric %>
+            <%= " L" %>
+          <% else %>
+            <%= " Gal" %>
+          <% end %>
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_gas_stop_path(gas_stop), :class => 'btn btn-mini pull-right' %>

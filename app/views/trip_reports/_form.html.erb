@@ -47,6 +47,12 @@
       <%= f.number_field :odometer_end, :class => 'number_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :metric, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :metric, :class => 'check_box' %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

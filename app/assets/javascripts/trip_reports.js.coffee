@@ -20,7 +20,7 @@ $('.close_crossing_form').click (e) ->
 $('.create-gas-stop-form').click (e) ->
   e.preventDefault()
   $(this).fadeToggle ->
-    $('.form-horizontal:last').slideToggle()
+    $('.form-horizontal:last').slideToggle ->
 
 $('.close-gas-stop-form').click (e) ->
   e.preventDefault()
